@@ -1,0 +1,38 @@
+; FIXME 2 packets
+
+(prefix p47sb_)
+
+(compose any
+(varint
+(0 (varint timestamp) keepalive)
+(1 (string message) chat)
+(2 (varint target)
+	(varint	(2 (float x y z) use_entity_at)
+		(type use_entity)))
+(3 (bool on_ground) player)
+(4 (double x y z) (bool on_ground) position)
+(5 (float yaw pitch) (bool on_ground) look)
+(6 (double x y z) (float yaw pitch) (bool on_ground) position_look)
+(7 (byte status) (position location) (byte face) digging)
+(8 (raw FIXME) place_block)
+(9 (short slot) held_item)
+(10 animation)
+(11 (varint entity_id action_id action) action)
+(12 (float sideways forward) (ubyte flags) steer)
+(13 (ubyte window_id) close_window)
+(14 (raw FIXME) click_window)
+(15 (byte window) (short action) (bool accept) confirm)
+(16 (short slot) (raw item) creative_action)
+(17 (byte window_id) (byte enchantment) enchant)
+(18 (position location) (string line1 line2 line3 line4) sign)
+(19 (byte flags) (float fly walk) abilities)
+(20 (string text)
+	(bool	(0 tab)
+		(1 (position location) tab_at)))
+(21 (string locale) (byte view chat_mode) (bool chat_colors) (ubyte skin_parts) client_settings)
+(22 (varint status) client_status)
+(23 (string channel) (raw data) plugin_message)
+(24 (uuid target) spectate)
+(25 (string hash) (varint result) resource_status)
+(id (raw data) unknown)))
+
